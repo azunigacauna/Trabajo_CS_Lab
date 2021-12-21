@@ -1,0 +1,42 @@
+{% load static %}
+{% static "images" as baseUrl%}
+
+<div class="box-form">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/formAdmin.css' %}">
+      <div class="left">
+          <div class="overlay">
+          <h1>Hola Admin.</h1>
+          <p>Este formulario solo aceptara el ingreso para peersonal autorizado de Service Next.</p>
+          <p>NOTA: Cualquier intento de ingreso no admitido de personal no autorizado sera notificado a nuestra empresa, gracias por su comprension.</p>
+          <span>
+              <p>Bienvenido Administrador Next, Ingrese a su Plataforma</p>
+  
+              <a href="{% url 'index'%}" style="text-decoration: none;">Retroceder</a>
+          </span>
+          </div>
+      </div>
+      <form action="loginAdministrador" method="post">
+        {% csrf_token %}
+        <div class="right">
+          
+            <h5>Login</h5>
+            
+            <p>Usted ya debe estar registrado en nuestra empresa, si no comuniquese a  <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl">Service Next</a>, para su pronta solucion.</p>
+            
+            <div class="inputs">
+                <input type="text" placeholder="Username***" name="username" style="background: #dac4c6;">
+                <br>
+                <input type="password" name="password" style="background: #dac4c6;" placeholder="Contraseña***" >
+            </div>
+                
+                <br><br>
+                
+            <div class="remember-me--forget-password">
+                    <!-- Angular -->
+            </div>
+                <br>
+                <button type="submit">Login</button>
+        </div>
+       </form>
+  </div>

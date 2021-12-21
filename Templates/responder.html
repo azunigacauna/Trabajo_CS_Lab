@@ -1,0 +1,36 @@
+{% load static %}
+{% static "images" as baseUrl%}
+
+<title>Responder Oferta de Trabajo</title>
+<link rel="stylesheet" href="{% static 'css/responder.css' %}" />
+<section class="showcase">
+  <header>
+    <h2 class="logo">Responder a Oferta de Trabajo</h2>
+    <div class="toggle"></div>
+  </header>
+  <video src="{% static 'video/explore.mp4' %}" muted loop autoplay></video>
+  <div class="overlay"></div>
+  <div class="text">
+    <h2>Responder Oferta </h2>
+    <h3>de trabajo publicada</h3>
+    <p>Esstimado Usuario, usted podra realizar la cotizacion del trabajo y demas datos de los cuales tendra que hablar con el cliente que solicita el trabajo, si procede el trabajo, al final de culminarlo solicite al cliente que lo califique en la plataforma para una mejor vision de usted y tenga mas puntos de reputacion. Asi mismo haga click en el siguiente boton para ir directamente a su correo electronico y pueda realizar la respectiva conversacion.
+    
+    .</p>
+    <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="_blank">Responder por email</a>
+  </div>
+  <ul class="social">
+    <li><a href="#"><img src="https://i.ibb.co/x7P24fL/facebook.png"></a></li>
+    <li><a href="#"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png"></a></li>
+    <li><a href="#"><img src="https://i.ibb.co/ySwtH4B/instagram.png"></a></li>
+  </ul>
+</section>
+<div class="menu">
+  <ul>
+    <li><a href="{% url 'index' %}">Inicio</a></li>
+    <li><a href="#">Nosotros</a></li>
+    <li><a href="#">Servicios</a></li>
+    <li><a href="#">Politica de Privacidad</a></li>
+    <li><a href="#">Contactenos</a></li>
+  </ul>
+</div>
+<script src="{% static 'js/responder.js' %}"></script>

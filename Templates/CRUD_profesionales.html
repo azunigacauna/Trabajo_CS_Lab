@@ -1,0 +1,99 @@
+{% load static %}
+{% static "images" as baseUrl%}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="#" />  
+    <title>Operaciones de profesiones</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <script src="{% static 'js/confirmacion.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'datatablesServiceNext/bootstrap/css/bootstrap.min.css' %}">
+    <!-- CSS personalizado --> 
+    <link rel="stylesheet" href="{% static 'datatablesServiceNext/mainFarmacia.css' %}">  
+      
+    <!--datables CSS básico-->
+    <link rel="stylesheet" type="text/css" href="{% static 'datatablesServiceNext/datatables/datatables.min.css' %}"/>
+    <!--datables estilo bootstrap 4 CSS-->  
+    <link rel="stylesheet"  type="text/css" href="{% static 'datatablesServiceNext/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css' %}">
+           
+    <!--font awesome con CDN-->  
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">  
+      
+  </head>
+
+    
+  <body style="background: black;"> 
+     <header style="background: linear-gradient(90deg, rgba(182,21,70,1) 0%, rgba(60,22,30,1) 27%, rgba(8,1,2,1) 100%, rgba(255,1,46,1) 100%, rgba(218,196,198,1) 100%);">
+         <h1 class="text-center text-light">Profesiones Actuales</h1>
+         <h2 class="text-center text-light">Bienvenido <span class="badge badge-warning">{{user.username}}</span></h2> 
+     </header>    
+    <div style="height:50px"></div>
+     
+    <!--Ejemplo tabla con DataTables-->
+    <div class="container">
+        <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive">        
+                        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="90%">
+                        <thead>
+                            <tr>
+                                <th>Profesion</th>
+                                <th>Imagen de Profesion</th>
+                                <th>Opciones de Administrador</th>                                                         
+                            </tr>
+                        </thead>
+                        <tbody>
+                          {% for prof in profesiones %}
+                            <tr>
+                                <td>{{prof.ProCod}}</td>eliminar/{{Historia.id}}/
+                                {% if prof.img %}
+                                    <td><img src="{{ prof.img.url }}" class="formato"></td>
+                                {% endif %}                              
+                                <td><a href="{% url 'modificarProfesiones' prof.ProCod %}" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons" style="color:green">&#xE254;</i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <!--Aun no funciona-->
+                                    <a href="{% url 'eliminarProfesiones' prof.ProCod  %}"  title="Eliminar"><i class="material-icons" style="color:red">&#xE872;</i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a href="index.html"><img src="{% static 'images/logos/logoNegro.png' %}" alt="logo" /></a>
+                                </td>
+                            </tr>  
+                        {% endfor %}                      
+                        </tbody>        
+                       </table>  
+                           <div style="text-align:left"> 
+                            <a id="boton-bonito" href="{% url 'index'%}">Retroceder</a>&nbsp;&nbsp;&nbsp;
+                            <a id="boton-bonito" href="{% url 'agregarProfesiones'%}">Agregar Profesion</a>
+                            </div>   <br><br>             
+                    </div>
+                </div>
+        </div>  
+    </div>    
+     
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="{% static 'datatablesServiceNext/jquery/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'datatablesServiceNext/popper/popper.min.js' %}"></script>
+    <script src="{% static 'datatablesServiceNext/bootstrap/js/bootstrap.min.js' %}"></script>
+      
+    <!-- datatables JS -->
+    <script type="text/javascript" src="{% static 'datatablesServiceNext/datatables/datatables.min.js' %}"></script>    
+     
+    <!-- para usar botones en datatables JS -->  
+    <script src="{% static 'datatablesServiceNext/datatables/Buttons-1.5.6/js/dataTables.buttons.min.js' %}"></script>  
+    <script src="{% static 'datatablesServiceNext/datatables/JSZip-2.5.0/jszip.min.js' %}"></script>    
+    <script src="{% static 'datatablesServiceNext/datatables/pdfmake-0.1.36/pdfmake.min.js' %}"></script>    
+    <script src="{% static 'datatablesServiceNext/datatables/pdfmake-0.1.36/vfs_fonts.js' %}"></script>
+    <script src="{% static 'datatablesServiceNext/datatables/Buttons-1.5.6/js/buttons.html5.min.js' %}"></script>
+     
+    <!-- código JS propìo-->    
+    <script type="text/javascript" src="{% static 'datatablesServiceNext/main.js' %}"></script>  
+    
+    
+  </body>
+</html>

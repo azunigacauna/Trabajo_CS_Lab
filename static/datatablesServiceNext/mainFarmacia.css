@@ -1,0 +1,65 @@
+body{
+    background: url("../images/hojas.jpeg");
+}
+header{
+    height: 140px;
+    background: #8E2DE2;
+	background: linear-gradient(to right, #2e162a, #9c0b1e);
+	background: linear-gradient(to right, #2e162a, #9c0b1e);
+}
+
+/*estilos para la tabla*/
+table th {
+    text-align: center;
+    background-color: #020102 !important;
+    color: white;
+}
+
+table td {
+    background-color: whitesmoke !important;
+    color: rgb(15, 12, 12);
+}
+
+table>tbody>tr>td {
+    vertical-align: middle !important;
+}
+
+/*para alinear los botones y cuadro de busqueda*/
+.btn-group, .btn-group-vertical {
+    position: absolute !important;
+}
+
+.dataTables_info{
+    font-weight:bolder;
+    color: rgb(46, 199, 0);
+}
+
+.dataTables_length{
+    color: yellow;
+}
+
+.badge-warning{
+    background-color: rgb(194, 226, 51);
+}
+
+.dataTables_filter{
+    color:rgb(225, 240, 15);
+}
+
+#boton-bonito {
+    text-decoration:none;
+    color:white;
+    padding:10px 20px;
+    background-color:#ac0a0a;
+    display:inline-block;
+    border-radius: 5px;
+    }
+    
+#boton-bonito:hover {
+    background-color:#0c0e0c;
+}
+
+.formato{
+    width: 200px; height: 100px;
+    text-decoration: none;
+}
